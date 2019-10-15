@@ -1,0 +1,109 @@
+.container {
+    width: 100vw;
+    height: 100vh;
+}
+
+.header {
+    height: 40px;
+    width: 100%;
+    background-color: brown;
+}
+
+.map {
+    width: 100%;
+    background-color: #3c4245;
+}
+
+.snake-item {
+    background-color: #ff6361;
+}
+
+.diamond {
+    background-color: #f7be16;
+}
+
+.count-down-container {
+    position: absolute;
+    z-index: 1;
+    width: 100vw;
+    min-height: 100vh;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.5);
+    opacity: 1;
+    transition: 0.4s;
+    visibility: visible;
+}
+
+.count-down-container-out {
+    position: absolute;
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    transition: 0.4s;
+    visibility: hidden;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.count-down {
+    font-weight: bold;
+    font-size: 96px;
+}
+
+.game-over-dialog-on {
+    width: 300px;
+    height: 300px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: stretch;
+    transition: 0.4s;
+    opacity: 1;
+    position: absolute;
+    left: calc(50% - 150px);
+    top: calc(50% - 150px);
+    visibility: visible;
+    z-index: 1;
+    background-color: white;
+    box-shadow: 0px 0px 1px 1000px rgba(255, 255, 255, 0.3)
+}
+
+.game-over-dialog-off {
+    background-color: white;
+    transition: 0.4s;
+    position: absolute;
+    left: calc(50% - 150px);
+    top: calc(50% - 150px);
+    z-index: 1;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.button {
+    border: none;
+    padding: 8px;
+    background-color: #ff6361;
+    color: white;
+    font-size: 18px;
+    transition: 0.4s;
+    opacity: 1;
+}
+
+.button:active {
+    outline: none;
+    opacity: 0.7;
+    transition: 0.4s;
+}
+
+.button:focus {
+    outline: none;
+}
