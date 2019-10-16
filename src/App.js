@@ -1,16 +1,17 @@
 import React from 'react';
 import './App.css';
 
-const matrixSize = 50;
+const matrixSizeX = 50;
+const matrixSizeY = 50;
 
 class App extends React.Component {
     constructor(props, context) {
         super(props, context);
 
         const matrix = [];
-        for (let i = 0; i < matrixSize; i++) {
+        for (let i = 0; i < matrixSizeX; i++) {
             matrix[i] = [];
-            for (let j = 0; j < matrixSize; j++) {
+            for (let j = 0; j < matrixSizeY; j++) {
                 matrix[i][j] = 0;
             }
         }
@@ -36,8 +37,8 @@ class App extends React.Component {
     }
 
     generateDiamondCoordinate = () => {
-        const x = parseInt(Math.random() * 10);
-        const y = parseInt(Math.random() * 10);
+        const x = parseInt(Math.random() * matrixSizeX);
+        const y = parseInt(Math.random() * matrixSizeY);
 
         return this.isPartOfSnake([x, y]) ? this.generateDiamondCoordinate() : [x, y];
     };
@@ -49,10 +50,9 @@ class App extends React.Component {
         this.initGame()
     }
 
-  setItemSize = ()=>{
-      console.log("rsis")
-      const itemSize = window.innerWidth / matrixSize;
-      this.setState({itemSize});
+    setItemSize = () => {
+        const itemSize = window.innerWidth / matrixSizeX;
+        this.setState({itemSize});
     };
 
     getHighScore = () => {
@@ -136,16 +136,16 @@ class App extends React.Component {
         const newValue = [...snakeCoordinates[snakeCoordinates.length - 1]];
         switch (direction) {
             case "r":
-                newValue[1] = (newValue[1] + 1) % matrixSize;
+                newValue[1] = (newValue[1] + 1) % matrixSizeX;
                 break;
             case "l":
-                newValue[1] = (newValue[1] + (matrixSize - 1)) % matrixSize;
+                newValue[1] = (newValue[1] + (matrixSizeY - 1)) % matrixSizeY;
                 break;
             case "u":
-                newValue[0] = (newValue[0] + (matrixSize - 1)) % matrixSize;
+                newValue[0] = (newValue[0] + (matrixSizeY - 1)) % matrixSizeY;
                 break;
             case "d":
-                newValue[0] = (newValue[0] + 1) % matrixSize;
+                newValue[0] = (newValue[0] + 1) % matrixSizeY;
                 break;
             default:
                 break;
@@ -182,7 +182,6 @@ class App extends React.Component {
                                  width: itemSize,
                                  height: itemSize,
                                  display: "inline-block",
-                                 //transition: "0.2s"
                              }}/>
             })
         })
