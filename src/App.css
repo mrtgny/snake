@@ -1,6 +1,11 @@
+body {
+    overscroll-behavior: none;
+}
+
 .container {
     width: 100vw;
     height: 100vh;
+    background-color: #3c4245;
 }
 
 .header {
@@ -9,8 +14,28 @@
     background-color: brown;
 }
 
+@media screen and (max-width: 600px) {
+    .header {
+        font-size: 12px;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .header {
+        font-size: 24px;
+    }
+}
+
 .map {
+    display: flex;
+    flex-flow: wrap;
+    column-gap: 0;
+    row-gap: 0;
+    line-height: 0;
     width: 100%;
+}
+
+.map-item {
     background-color: #3c4245;
 }
 
@@ -69,8 +94,8 @@
     transition: 0.4s;
     opacity: 1;
     position: absolute;
-    left: calc(50% - 150px);
-    top: calc(50% - 150px);
+    left: calc(50% - 174px);
+    top: calc(50% - 174px);
     visibility: visible;
     z-index: 1;
     background-color: white;
