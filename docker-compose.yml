@@ -7,6 +7,3 @@ services:
       - "3003:3000"
     container_name: snake
     restart: always
-    volumes:
-       - ./:/usr/src/app/mrtgny/website
-       - /usr/src/app/mrtgny/website/node_modules
