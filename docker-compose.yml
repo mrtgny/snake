@@ -4,6 +4,6 @@ services:
     build:
       context: ./
     ports:
-      - "3003:3000"
+      - "3003:80"
     container_name: snake
     restart: always

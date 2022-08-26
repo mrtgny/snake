@@ -1,13 +1,8 @@
-FROM node:16-alpine
-
-WORKDIR /usr/src/app/mrtgny
-
+FROM nginx:alpine
+RUN apk add --update nodejs npm
+WORKDIR /app
 COPY . .
-
-RUN npm install
-
+RUN yarn
 RUN npm run build
-
-EXPOSE 3000
-
-CMD ["npm", "start"]
+COPY ./templates/nginx.conf /etc/nginx/nginx.conf
+CMD ["nginx", "-g", "daemon off;"]
