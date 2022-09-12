@@ -1,4 +1,4 @@
-import { useRef, TouchEventHandler, useCallback } from "react";
+import { TouchEventHandler, useCallback, useRef } from "react";
 import { KeyCode } from "../types";
 
 export const useSwipGesture = () => {
@@ -25,13 +25,13 @@ export const useSwipGesture = () => {
         const mX = touch.clientX - initial.current[0]
         const mY = touch.clientY - initial.current[1]
 
-        if (Math.abs(mX) > 20) {
+        if (Math.abs(mX) > 20 && Math.abs(mX) > Math.abs(mY)) {
             if (mX > 0) {
                 document.dispatchEvent(new KeyboardEvent("keydown", { code: KeyCode.ArrowRight }))
             } else {
                 document.dispatchEvent(new KeyboardEvent("keydown", { code: KeyCode.ArrowLeft }))
             }
-        } else if (Math.abs(mY) > 20) {
+        } else if (Math.abs(mY) > 20 && Math.abs(mY) > Math.abs(mX)) {
             if (mY > 0) {
                 document.dispatchEvent(new KeyboardEvent("keydown", { code: KeyCode.ArrowDown }))
             } else {
