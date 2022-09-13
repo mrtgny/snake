@@ -1,5 +1,5 @@
 import { useCallback } from "react";
-import { isBrowser } from "../utils";
+import { isBrowser } from "utils/functions";
 
 export const useHighScore = () => {
     const getHighScore = useCallback((): number => {

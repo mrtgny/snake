@@ -1,5 +1,5 @@
 import { TouchEventHandler, useCallback, useRef } from "react";
-import { KeyCode } from "../types";
+import { KeyCode } from "utils/types";
 
 export const useSwipGesture = () => {
     const initial = useRef([0, 0])

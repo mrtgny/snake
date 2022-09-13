@@ -21,3 +21,7 @@ export enum OppositeKeyCodeDirection {
     ArrowLeft = "r",
     ArrowRight = "l",
 };
+
+export interface Dict<T = {}> {
+    [key: string]: T;
+}
