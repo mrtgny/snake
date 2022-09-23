@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-import { isBrowser } from "utils/functions";
 
 const usePageHeight = () => {
-    const [height, setHeight] = useState<number>(isBrowser() ? window.innerHeight : 1000);
+    const [height, setHeight] = useState<number>(1000);
 
     useEffect(() => {
         setHeight(window.innerHeight);
