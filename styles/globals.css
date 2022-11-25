@@ -132,7 +132,7 @@ a {
   visibility: visible;
   z-index: 1;
   background-color: white;
-  box-shadow: 0px 0px 1px 1000px rgba(255, 255, 255, 0.3)
+  box-shadow: 0px 0px 1px 1000px rgba(255, 255, 255, 0.3);
 }
 
 .game-over-dialog-off {

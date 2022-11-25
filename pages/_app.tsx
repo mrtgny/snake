@@ -1,15 +1,14 @@
-import { GoogleAnalytics } from '@reactivers/next-ga';
-import type { AppProps } from 'next/app';
-import Head from 'next/head';
-import { useEffect } from 'react';
-import { preventZoom } from 'utils/functions';
-import '../styles/globals.css';
+import { GoogleAnalytics } from "@reactivers/next-ga";
+import type { AppProps } from "next/app";
+import Head from "next/head";
+import { useEffect } from "react";
+import { preventZoom } from "utils/functions";
+import "../styles/globals.css";
 
-const APP_NAME = 'Snake Game';
-const APP_DESCRIPTION = 'A classic snake game';
+const APP_NAME = "Snake Game";
+const APP_DESCRIPTION = "A classic snake game";
 
 function MyApp({ Component, pageProps }: AppProps) {
-
   useEffect(() => {
     preventZoom();
   }, []);
@@ -24,7 +23,10 @@ function MyApp({ Component, pageProps }: AppProps) {
         />
         <meta name="application-name" content={APP_NAME} />
         <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta
+          name="apple-mobile-web-app-status-bar-style"
+          content="black-translucent"
+        />
         <meta name="apple-mobile-web-app-title" content={APP_NAME} />
         <meta name="description" content={APP_DESCRIPTION} />
         <meta name="format-detection" content="telephone=no" />
@@ -33,7 +35,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Component {...pageProps} />
       <GoogleAnalytics gaId="G-YGDK6V5F4F" />
     </>
-  )
+  );
 }
 
-export default MyApp
+export default MyApp;
