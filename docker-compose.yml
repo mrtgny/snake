@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 services:
   nodejs-server:
     build:
@@ -7,3 +7,9 @@ services:
       - "3003:80"
     container_name: snake
     restart: always
+networks:
+  default:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.26.0.2/16

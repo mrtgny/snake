@@ -8,11 +8,11 @@
     "build": "rm -rf out .next && APP_ENV=development next build",
     "build-prod": "rm -rf out .next && APP_ENV=production next build",
     "start": "next start",
+    "format": "npx prettier --write \"src/**/*.{ts,tsx}\" \"pages/**/*.{ts,tsx}\"",
     "export": "npm run build && next export",
     "export-prod": "npm run build-prod && next export",
-    "generate": "APP_ENV=development graphql-codegen --config codegen.js",
-    "generate-prod": "APP_ENV=production graphql-codegen --config codegen.js",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@reactivers/next-ga": "^1.0.0",
@@ -21,6 +21,11 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.5.0",
+    "@commitlint/config-conventional": "^17.4.4",
+    "@typescript-eslint/eslint-plugin": "^5.57.0",
+    "@typescript-eslint/parser": "^5.57.0",
+    "husky": "^8.0.3",
     "@types/node": "18.0.0",
     "@types/react": "18.0.14",
     "@types/react-dom": "18.0.5",

@@ -6,7 +6,7 @@ const Map: FC<{
   diamondCoordinate: number[];
   isPartOfSnake: (
     snakeCoorinates: number[][],
-    mapCoordinates: number[]
+    mapCoordinates: number[],
   ) => boolean;
   score: number;
   snakeCoordinates: number[][];

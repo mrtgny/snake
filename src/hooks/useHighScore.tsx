@@ -19,7 +19,7 @@ export const useHighScore = () => {
         return lastHighScore;
       }
     },
-    [getHighScore]
+    [getHighScore],
   );
 
   return {

@@ -28,21 +28,21 @@ export const useSwipGesture = () => {
     if (Math.abs(mX) > 20 && Math.abs(mX) > Math.abs(mY)) {
       if (mX > 0) {
         document.dispatchEvent(
-          new KeyboardEvent("keydown", { code: KeyCode.ArrowRight })
+          new KeyboardEvent("keydown", { code: KeyCode.ArrowRight }),
         );
       } else {
         document.dispatchEvent(
-          new KeyboardEvent("keydown", { code: KeyCode.ArrowLeft })
+          new KeyboardEvent("keydown", { code: KeyCode.ArrowLeft }),
         );
       }
     } else if (Math.abs(mY) > 20 && Math.abs(mY) > Math.abs(mX)) {
       if (mY > 0) {
         document.dispatchEvent(
-          new KeyboardEvent("keydown", { code: KeyCode.ArrowDown })
+          new KeyboardEvent("keydown", { code: KeyCode.ArrowDown }),
         );
       } else {
         document.dispatchEvent(
-          new KeyboardEvent("keydown", { code: KeyCode.ArrowUp })
+          new KeyboardEvent("keydown", { code: KeyCode.ArrowUp }),
         );
       }
     }

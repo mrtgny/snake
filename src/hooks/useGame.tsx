@@ -4,6 +4,7 @@ import {
   getInitialDirections,
   getInitialSnakePosition,
 } from "utils/constants";
+import { searchIndexObjectInObject } from "utils/functions";
 import {
   DirectionType,
   KeyCodeDirection,
@@ -18,7 +19,7 @@ const useGame = () => {
   const [map, setMap] = useState<number[][]>([]);
   const [mapSize, setMapSize] = useState([0, 0]);
   const [snakeCoordinates, setSnakeCoordinates] = useState(
-    getInitialSnakePosition()
+    getInitialSnakePosition(),
   );
   const [diamondCoordinate, setDiamonCoordinate] = useState([0, 0]);
   const [isGameOver, setIsGameOver] = useState(false);
@@ -61,7 +62,7 @@ const useGame = () => {
         columnCount,
       };
     },
-    [pageHeight]
+    [pageHeight],
   );
 
   const onGameOver = useCallback(() => {
@@ -72,17 +73,14 @@ const useGame = () => {
   }, [score, setHightScore, resetIntervals]);
 
   const isPartOfSnake = useCallback(
-    (snakeCoordinates, coordinate: number[]) => {
-      return (
-        JSON.stringify(snakeCoordinates).indexOf(JSON.stringify(coordinate)) >
-        -1
-      );
+    (snakeCoordinates: number[][], coordinate: number[]) => {
+      return searchIndexObjectInObject(snakeCoordinates, coordinate) > -1;
     },
-    []
+    [],
   );
 
   const generateDiamondCoordinate = useCallback(
-    (snakeCoordinates): [number, number] => {
+    (snakeCoordinates: number[][]): [number, number] => {
       const { rowCount, columnCount } = getMapInfo();
       const x = parseInt(`${Math.random() * rowCount}`);
       const y = parseInt(`${Math.random() * columnCount}`);
@@ -91,7 +89,7 @@ const useGame = () => {
         ? generateDiamondCoordinate(snakeCoordinates)
         : [x, y];
     },
-    [isPartOfSnake, getMapInfo]
+    [isPartOfSnake, getMapInfo],
   );
 
   const move = useCallback(() => {
@@ -152,7 +150,7 @@ const useGame = () => {
     resetIntervals();
     gameInterval.current = setInterval(
       move,
-      Math.max(50, 150 - (score + 1) * 5)
+      Math.max(50, 150 - (score + 1) * 5),
     );
     timerInterval.current = setInterval(() => {
       setTime((old) => old + 1);

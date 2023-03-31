@@ -7,28 +7,31 @@ export const capitalize = (word: string) => {
   return _word;
 };
 
+export const searchIndexObjectInObject = (
+  source: Array<unknown>,
+  target: Array<unknown>,
+) => JSON.stringify(source).indexOf(JSON.stringify(target));
+
 export const preventZoom = () => {
-  document.addEventListener(
-    "touchmove",
-    function (event) {
-      if (event["scale"] !== undefined && event["scale"] !== 1) {
-        event.preventDefault();
-      }
-    },
-    { passive: false }
-  );
-  var lastTouchEnd = 0;
-  document.addEventListener(
-    "touchend",
-    function (event) {
-      var now = new Date().getTime();
-      if (now - lastTouchEnd <= 300) {
-        event.preventDefault();
-      }
-      lastTouchEnd = now;
-    },
-    false
-  );
+  let lastTouchEnd = 0;
+  const onTouchMove: EventListener = (event: Event) => {
+    if (event.scale !== undefined && event.scale !== 1) {
+      event.preventDefault();
+    }
+  };
+  const onTouchEnd = (event: TouchEvent) => {
+    const now = new Date().getTime();
+    if (now - lastTouchEnd <= 300) {
+      event.preventDefault();
+    }
+    lastTouchEnd = now;
+  };
+  document.addEventListener("touchmove", onTouchMove, { passive: false });
+  document.addEventListener("touchend", onTouchEnd, false);
+  return () => {
+    document.removeEventListener("touchmove", onTouchMove);
+    document.removeEventListener("touchend", onTouchEnd);
+  };
 };
 
 export const renderTime = (time: number) => {

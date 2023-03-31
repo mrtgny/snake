@@ -10,7 +10,7 @@ const APP_DESCRIPTION = "A classic snake game";
 
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
-    preventZoom();
+    return preventZoom();
   }, []);
 
   return (
